@@ -1,0 +1,107 @@
+'use client';
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";  // Import this
+import { useState } from "react";
+import { Github, Linkedin, Menu, X } from "lucide-react";
+import { KaggleIcon } from "./Icons/KaggleIcon";
+
+export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();  // Get current URL path
+
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/projects", label: "Projects" },
+    { href: "/about", label: "About" },
+  ];
+
+  // Function to check if link is active
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";  // Exact match for home
+    }
+    return pathname.startsWith(href);  // Starts with for other pages
+  };
+
+  return (
+    <nav className="fixed top-0 w-full z-50 glass">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          <Link href="/" className="text-xl font-bold text-gradient">
+            Giuseppe Testa
+          </Link>
+
+          {/* Desktop Nav */}
+          <div className="hidden md:flex items-center space-x-8">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative transition-colors ${
+                    active 
+                      ? "text-white font-semibold" 
+                      : "text-gray-400 hover:text-white"
+                  }`}
+                >
+                  {link.label}
+                  {/* Active indicator - underline */}
+                  {active && (
+                    <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-blue-400 to-purple-600 rounded-full" />
+                  )}
+                </Link>
+              );
+            })}
+            
+            <div className="flex items-center space-x-4 ml-4 border-l border-white/20 pl-4">
+              <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer">
+                <Github className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
+              </a>
+              <a href="https://kaggle.com/peppetesta" target="_blank" rel="noopener noreferrer" >
+                <KaggleIcon className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
+              </a>
+              <a href="https://linkedin.com/in/giuseppe-testa-09445b326/" target="_blank" rel="noopener noreferrer">
+                <Linkedin className="w-5 h-5 text-gray-400 hover:text-white transition-colors" />
+              </a>
+            </div>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden text-gray-300"
+            onClick={() => setIsOpen(!isOpen)}
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Nav */}
+      {isOpen && (
+        <div className="md:hidden glass border-t border-white/10">
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`block px-3 py-2 rounded-md transition-colors ${
+                    active
+                      ? "text-white bg-white/10 font-semibold"
+                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                  }`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </nav>
+  );
+}
