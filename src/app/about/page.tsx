@@ -9,8 +9,8 @@ export default function AboutPage() {
   return (
     <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 animate-fade-in">
       <div className="max-w-4xl mx-auto">
-        {/* Main card - darker background */}
-        <div className="bg-gray-900/80 backdrop-blur-sm rounded-3xl p-6 md:p-12 border border-white/10">
+        {/* Main card - same glass style as project cards */}
+        <div className="glass rounded-3xl p-6 md:p-12">
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-4xl font-bold overflow-hidden mx-auto md:mx-0">
               <Image
@@ -26,7 +26,7 @@ export default function AboutPage() {
               <h1 className="text-3xl md:text-4xl font-bold mb-2 text-white">Giuseppe Testa</h1>
               <p className="text-blue-400 text-lg mb-4">Full-Stack Developer & Data Analyst</p>
               
-              <div className="flex items-center justify-center md:justify-start gap-4 text-gray-400 mb-6">
+              <div className="flex items-center justify-center md:justify-start gap-4 text-gray-300 mb-6">
                 <span className="flex items-center gap-1">
                   <MapPin className="w-4 h-4" /> Napoli, Italy / Barcelona, Spain
                 </span>
@@ -41,19 +41,19 @@ export default function AboutPage() {
 
               <div className="flex flex-wrap justify-center md:justify-start gap-3">
                 <a href="https://github.com/peptesta" target="_blank" rel="noopener noreferrer"
-                   className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors border border-white/10">
+                   className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/10">
                   <Github className="w-5 h-5" /> GitHub
                 </a>
                 <a href="https://www.kaggle.com/peppetesta" target="_blank" rel="noopener noreferrer"
-                   className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors border border-white/10">
+                   className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/10">
                   <KaggleIcon className="w-5 h-5" /> Kaggle
                 </a>
                 <a href="https://linkedin.com/in/giuseppe-testa-09445b326/" target="_blank" rel="noopener noreferrer"
-                   className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors border border-white/10">
+                   className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/10">
                   <Linkedin className="w-5 h-5" /> LinkedIn
                 </a>
                 <a href="mailto:sonsycomb@gmail.com"
-                   className="flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 text-white rounded-lg transition-colors border border-white/10">
+                   className="flex items-center gap-2 px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors border border-white/10">
                   <Mail className="w-5 h-5" /> Email
                 </a>
               </div>
@@ -64,16 +64,16 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold mb-6 text-white">Experience</h2>
             <div className="space-y-6">
               {experiences.map((exp) => (
-                <div key={exp.id} className="bg-black/40 rounded-xl p-6 border border-white/5 hover:bg-black/50 transition-colors">
+                <div key={exp.id} className="glass rounded-xl p-6 hover:bg-white/5 transition-colors">
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3">
                     <div>
                       <h3 className="text-lg font-semibold text-white">{exp.title}</h3>
                       <p className="text-blue-400">{exp.company}</p>
                       {exp.location && (
-                        <p className="text-gray-500 text-sm">{exp.location}</p>
+                        <p className="text-gray-400 text-sm">{exp.location}</p>
                       )}
                     </div>
-                    <span className="text-gray-400 text-sm mt-2 sm:mt-0 bg-white/5 px-3 py-1 rounded-full">
+                    <span className="text-gray-300 text-sm mt-2 sm:mt-0 bg-white/10 px-3 py-1 rounded-full">
                       {exp.startDate} - {exp.endDate}
                     </span>
                   </div>
@@ -83,7 +83,7 @@ export default function AboutPage() {
                   {exp.achievements && exp.achievements.length > 0 && (
                     <ul className="space-y-2 mb-4">
                       {exp.achievements.map((achievement, i) => (
-                        <li key={i} className="flex items-start text-gray-400 text-sm">
+                        <li key={i} className="flex items-start text-gray-300 text-sm">
                           <span className="text-green-400 mr-2">•</span>
                           {achievement}
                         </li>
@@ -96,7 +96,7 @@ export default function AboutPage() {
                       {exp.technologies.map((tech) => (
                         <span 
                           key={tech} 
-                          className="px-3 py-1.5 text-xs bg-blue-600/20 text-blue-300 rounded-full border border-blue-500/30"
+                          className="px-3 py-1.5 text-xs bg-blue-500/20 text-blue-300 rounded-full"
                         >
                           {tech}
                         </span>
