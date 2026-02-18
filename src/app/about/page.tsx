@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 animate-fade-in">
       <div className="max-w-4xl mx-auto">
-        {/* Main card - same glass style as project cards */}
+        {/* Main card - glass style */}
         <div className="glass rounded-3xl p-6 md:p-12">
           <div className="flex flex-col md:flex-row gap-8 items-start">
             <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-4xl font-bold overflow-hidden mx-auto md:mx-0">
@@ -64,7 +64,10 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold mb-6 text-white">Experience</h2>
             <div className="space-y-6">
               {experiences.map((exp) => (
-                <div key={exp.id} className="glass rounded-xl p-6 hover:bg-white/5 transition-colors">
+                <div 
+                  key={exp.id} 
+                  className="rounded-xl p-6 transition-colors bg-white/5 border border-white/10 hover:bg-white/10"
+                >
                   <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3">
                     <div>
                       <h3 className="text-lg font-semibold text-white">{exp.title}</h3>
@@ -73,7 +76,7 @@ export default function AboutPage() {
                         <p className="text-gray-400 text-sm">{exp.location}</p>
                       )}
                     </div>
-                    <span className="text-gray-300 text-sm mt-2 sm:mt-0 bg-white/10 px-3 py-1 rounded-full">
+                    <span className="text-gray-300 text-sm mt-2 sm:mt-0 bg-black/30 px-3 py-1 rounded-full border border-white/10">
                       {exp.startDate} - {exp.endDate}
                     </span>
                   </div>
@@ -96,7 +99,7 @@ export default function AboutPage() {
                       {exp.technologies.map((tech) => (
                         <span 
                           key={tech} 
-                          className="px-3 py-1.5 text-xs bg-blue-500/20 text-blue-300 rounded-full"
+                          className="px-3 py-1.5 text-xs bg-blue-600/20 text-blue-300 rounded-full border border-blue-500/30"
                         >
                           {tech}
                         </span>
