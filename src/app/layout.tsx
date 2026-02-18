@@ -2,13 +2,29 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
-import { NetworkBackground } from "@/components/Backgrounds/NetworkBackground";  // Import it
+import { NetworkBackground } from "@/components/Backgrounds/NetworkBackground";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Giuseppe Testa | Developer",
   description: "Full-stack developer & Data Analyst",
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },           // Modern browsers (scalable)
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' }, // Fallback
+      { url: '/favicon.ico', sizes: 'any' },                    // Legacy browsers
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'manifest',
+        url: '/site.webmanifest',
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -19,8 +35,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} relative min-h-screen bg-black`}>
-        <NetworkBackground />  {/* Add it here */}
-        <div className="relative z-10">  {/* Wrap content to keep it above canvas */}
+        <NetworkBackground />
+        <div className="relative z-10">
           <Navbar />
           <main>{children}</main>
         </div>
