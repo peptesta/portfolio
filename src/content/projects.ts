@@ -16,13 +16,13 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    slug: "orchitech-ai-botany",
-    title: "Orchitech",
+    slug: "ophryslens-ai-botany",
+    title: "OphrysLens",
     description: "AI-driven taxonomic classification and smart-cropping system for the Ophrys orchid genus.",
-    longDescription: "Orchitech is a professional-grade web ecosystem designed to bridge the gap between AI research and field botany. It leverages Deep Learning (Faster R-CNN & ResNet50) to automate the identification of Ophrys orchid species. The system features a 'Human-in-the-loop' interface that allows researchers to manually refine bounding boxes, compare classification strategies (6-Class vs. 1-vs-All), and visualize AI decision-making via Grad-CAM heatmaps.",
+    longDescription: "OphrysLens is a professional-grade web ecosystem designed to bridge the gap between AI research and field botany. It leverages Deep Learning (Faster R-CNN & ResNet50) to automate the identification of Ophrys orchid species. The system features a 'Human-in-the-loop' interface that allows researchers to manually refine bounding boxes, compare classification strategies (6-Class vs. 1-vs-All), and visualize AI decision-making via Grad-CAM heatmaps.",
     tags: ["Next.js", "TypeScript", "Python", "PyTorch", "Flask", "Docker"],
-    githubUrl: "https://github.com/peptesta/Orchitech",
-    liveUrl: "https://orchitech.vercel.app/",
+    githubUrl: "https://github.com/peptesta/OphrysLens",
+    liveUrl: "https://ophryslens.vercel.app/",
     featured: true,
     challenges: [
       "Mitigating background noise and clutter in natural environment (in-the-wild) photographs.",
