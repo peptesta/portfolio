@@ -7,7 +7,7 @@ export default function AboutPage() {
   const experiences = getAllExperiences();
 
   return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8 animate-fade-in">
+    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Main card - glass style */}
         <div className="glass rounded-3xl p-6 md:p-12">

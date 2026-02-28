@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
-import { NetworkBackground } from "@/components/Backgrounds/NetworkBackground";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,9 +10,9 @@ export const metadata: Metadata = {
   description: "Full-stack developer & Data Analyst",
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },           // Modern browsers (scalable)
-      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' }, // Fallback
-      { url: '/favicon.ico', sizes: 'any' },                    // Legacy browsers
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
     ],
     apple: [
       { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
@@ -34,11 +33,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} relative min-h-screen bg-black`}>
-        <NetworkBackground />
+      <body className={`${inter.className} relative min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 isolate`}>
         <div className="relative z-10">
           <Navbar />
-          <main>{children}</main>
+          {children}
         </div>
       </body>
     </html>

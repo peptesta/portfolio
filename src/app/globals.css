@@ -7,11 +7,48 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #000;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Nasconde la scrollbar orizzontale su tutti i browser */
+::-webkit-scrollbar {
+  display: none; /* Opzionale: nasconde del tutto la barra */
 }
 
 body {
   color: #ffffff;
-  background: linear-gradient(to bottom, transparent, #000000) #000000;
+}
+
+/* Forza il rendering nitido su elementi trasformati */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: subpixel-antialiased; /* Cruciale per Chrome */
+}
+
+canvas, img, div {
+  image-rendering: -webkit-optimize-contrast; /* Migliora la nitidezza delle immagini */
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+}
+
+/* Trick specifico per elementi trasformati */
+.perspective-1000 {
+  perspective: 1000px;
+  transform-style: preserve-3d;
 }
 
 @layer utilities {
