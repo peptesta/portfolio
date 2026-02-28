@@ -1,9 +1,17 @@
+import { 
+  Brain,
+  Leaf,
+  Activity,
+  type LucideIcon
+} from 'lucide-react';
+
 export interface Project {
   slug: string;
   title: string;
   description: string;
   longDescription: string;
   tags: string[];
+  icon?: LucideIcon;
   githubUrl?: string;
   kaggleUrl?: string;
   liveUrl?: string;
@@ -21,6 +29,7 @@ export const projects: Project[] = [
     description: "AI-driven taxonomic classification and smart-cropping system for the Ophrys orchid genus.",
     longDescription: "OphrysLens is a professional-grade web ecosystem designed to bridge the gap between AI research and field botany. It leverages Deep Learning (Faster R-CNN & ResNet50) to automate the identification of Ophrys orchid species. The system features a 'Human-in-the-loop' interface that allows researchers to manually refine bounding boxes, compare classification strategies (6-Class vs. 1-vs-All), and visualize AI decision-making via Grad-CAM heatmaps.",
     tags: ["Next.js", "TypeScript", "Python", "PyTorch", "Flask", "Docker"],
+    icon: Leaf,
     githubUrl: "https://github.com/peptesta/OphrysLens",
     liveUrl: "https://ophryslens.vercel.app/",
     featured: true,
@@ -46,7 +55,7 @@ export const projects: Project[] = [
       "Tailwind CSS", 
       "Pillow (PIL)"
     ],
-    images: ["/images/orchitech-dashboard.jpg", "/images/orchitech-cropping.jpg"]
+    images: ["/images/orchitech-dashboard.png", "/images/orchitech-cropping.jpg"]
   },
   {
     slug: "physio-web-app",
@@ -54,6 +63,7 @@ export const projects: Project[] = [
     description: "A comprehensive digital platform for specialized physiotherapy clinics and patient management.",
     longDescription: "A full-stack web application designed for a physiotherapy practice. It features a streamlined patient booking system, service showcases, and an administrative dashboard for managing appointments and patient inquiries using a secure PostgreSQL database.",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Tailwind CSS", "Lucide React"],
+    icon: Activity,
     githubUrl: "https://github.com/peptesta/fisioabadia",
     liveUrl: "https://fisioabadia.vercel.app/",
     featured: true,
@@ -68,7 +78,7 @@ export const projects: Project[] = [
       "Leveraged Prisma ORM for type-safe database queries and efficient data fetching"
     ],
     technologies: ["Next.js 14", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS", "Zod"],
-    images: ["/images/physio-home.jpg", "/images/physio-dashboard.jpg"]
+    images: ["/images/fisioabadia-dashboard.png", "/images/physio-dashboard.jpg"]
   },
   {
     slug: "divorce-prediction-analysis",
@@ -76,6 +86,7 @@ export const projects: Project[] = [
     description: "A data-driven study using machine learning to predict marital outcomes based on the Gottman Method.",
     longDescription: "An end-to-end data analysis project that explores a dataset of married couples. Using a Random Forest classifier and SHAP analysis, I developed a model that predicts divorce with 89% accuracy, while identifying the specific behavioral 'triggers' that most significantly correlate with relationship failure.",
     tags: ["Python", "Scikit-Learn", "Pandas", "Matplotlib", "Seaborn", "Machine Learning"],
+    icon: Brain,
     githubUrl: "https://github.com/peptesta/divorce_analysis",
     kaggleUrl: "https://www.kaggle.com/code/peppetesta/divorce-analysis/notebook",
     liveUrl: "i have to load my pdf here", 
@@ -91,7 +102,7 @@ export const projects: Project[] = [
       "Created a detailed PowerPoint breakdown of 'Predictive Red Flags' versus secondary marital stressors"
     ],
     technologies: ["Python (Jupyter)", "Scikit-Learn", "Pandas", "Seaborn", "PowerPoint", "Statistics"],
-    images: ["/images/correlation-matrix.jpg", "/images/ai-accuracy-report.jpg"]
+    images: ["/images/generic.png", "/images/ai-accuracy-report.jpg"]
   },
 ];
 
