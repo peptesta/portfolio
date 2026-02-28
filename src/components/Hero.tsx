@@ -130,7 +130,7 @@ export default function HeroPage() {
         }}
       />
 
-      <main className="relative z-10 flex flex-col min-h-screen">
+      <main className="relative z-10 flex flex-col min-h-screen pt-16">
         <div className="flex-1 flex items-center px-6 max-w-7xl mx-auto w-full">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center w-full">
 
@@ -185,14 +185,14 @@ export default function HeroPage() {
               {/* 🔥 Freccia più piccola */}
               <button
                 onClick={handlePrev}
-                className="absolute left-0 z-50 p-3 rounded-full bg-white text-slate-900 shadow-xl hover:scale-110 transition-all"
+                className="absolute left-0 z-[999] p-3 rounded-full bg-white text-slate-900 shadow-xl hover:scale-110 transition-all"
               >
                 <ChevronLeft className="w-5 h-5" />
               </button>
 
               <button
                 onClick={handleNext}
-                className="absolute right-0 z-50 p-3 rounded-full bg-white text-slate-900 shadow-xl hover:scale-110 transition-all"
+                className="absolute right-0 z-[999] p-3 rounded-full bg-white text-slate-900 shadow-xl hover:scale-110 transition-all"
               >
                 <ChevronRight className="w-5 h-5" />
               </button>
@@ -222,7 +222,7 @@ export default function HeroPage() {
                     onClick={() => setActiveIndex(index)}
                   >
                     <Link href={`/projects/${project.slug}`}>
-                      <div className="rounded-2xl overflow-hidden shadow-2xl bg-slate-900 ring-1 ring-white/10">
+                      <div className="rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10">
 
                         <div className="aspect-[4/5] relative">
                           <img

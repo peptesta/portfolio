@@ -7,10 +7,40 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project }: ProjectCardProps) {
-  const { title, description, tags, githubUrl, liveUrl, slug } = project;
+  const { title, description, tags, githubUrl, liveUrl, slug, mainTag, images } = project;
 
   return (
-    <div className="group glass rounded-2xl overflow-hidden hover:bg-white/15 transition-all duration-300 hover:scale-[1.02]">
+    <div className="
+      group 
+      rounded-2xl 
+      overflow-hidden 
+      transition-all duration-300 
+      bg-slate-800 
+      border border-transparent 
+      hover:border-white 
+      hover:scale-[1.02] 
+      shadow-lg shadow-black/20
+    ">
+      
+    {/* IMAGE + MAIN TAG */}
+    {images && images[0] && (
+      <div className="relative w-full h-48 overflow-hidden rounded-t-2xl">
+        <img
+          src={images[0]}
+          alt={title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        />
+
+        {/* MAIN TAG BADGE */}
+        {mainTag && (
+          <span className="absolute top-2 right-2 z-20 px-2 py-1 text-xs font-bold uppercase bg-blue-600 text-white rounded-full shadow-lg">
+            {mainTag}
+          </span>
+        )}
+      </div>
+    )}
+
+      {/* CARD CONTENT */}
       <div className="p-6">
         <div className="flex justify-between items-start mb-4">
           <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">

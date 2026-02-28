@@ -7,12 +7,12 @@ export default function AboutPage() {
   const experiences = getAllExperiences();
 
   return (
-    <div className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-950 antialiased selection:bg-blue-500/30 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Main card - glass style */}
-        <div className="glass rounded-3xl p-6 md:p-12">
+        <>
           <div className="flex flex-col md:flex-row gap-8 items-start">
-            <div className="w-32 h-32 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-4xl font-bold overflow-hidden mx-auto md:mx-0">
+            <div className="w-32 h-32 rounded-2xl flex items-center justify-center text-4xl font-bold overflow-hidden mx-auto md:mx-0">
               <Image
                 src="/profile.png"
                 alt="Profile Picture"
@@ -110,7 +110,7 @@ export default function AboutPage() {
               ))}
             </div>
           </div>
-        </div>
+        </>
       </div>
     </div>
   );

@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${inter.className} relative min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 isolate`}>
+      <body className={`${inter.className} relative min-h-screen bg-slate-950 antialiased selection:bg-blue-500/30 isolate`}>
         <div className="relative z-10">
           <Navbar />
           {children}

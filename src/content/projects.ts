@@ -7,6 +7,7 @@ import {
 
 export interface Project {
   slug: string;
+  mainTag: string;
   title: string;
   description: string;
   longDescription: string;
@@ -25,6 +26,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "ophryslens-ai-botany",
+    mainTag: "AI",
     title: "OphrysLens",
     description: "AI-driven taxonomic classification and smart-cropping system for the Ophrys orchid genus.",
     longDescription: "OphrysLens is a professional-grade web ecosystem designed to bridge the gap between AI research and field botany. It leverages Deep Learning (Faster R-CNN & ResNet50) to automate the identification of Ophrys orchid species. The system features a 'Human-in-the-loop' interface that allows researchers to manually refine bounding boxes, compare classification strategies (6-Class vs. 1-vs-All), and visualize AI decision-making via Grad-CAM heatmaps.",
@@ -59,6 +61,7 @@ export const projects: Project[] = [
   },
   {
     slug: "physio-web-app",
+    mainTag: "Web App",
     title: "FisioAbadia",
     description: "A comprehensive digital platform for specialized physiotherapy clinics and patient management.",
     longDescription: "A full-stack web application designed for a physiotherapy practice. It features a streamlined patient booking system, service showcases, and an administrative dashboard for managing appointments and patient inquiries using a secure PostgreSQL database.",
@@ -82,6 +85,7 @@ export const projects: Project[] = [
   },
   {
     slug: "divorce-prediction-analysis",
+    mainTag: "Data",
     title: "The Pulse of Marriage: Predictive Analytics & AI",
     description: "A data-driven study using machine learning to predict marital outcomes based on the Gottman Method.",
     longDescription: "An end-to-end data analysis project that explores a dataset of married couples. Using a Random Forest classifier and SHAP analysis, I developed a model that predicts divorce with 89% accuracy, while identifying the specific behavioral 'triggers' that most significantly correlate with relationship failure.",
