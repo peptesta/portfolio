@@ -7,7 +7,7 @@ export default function AboutPage() {
   const experiences = getAllExperiences();
 
   return (
-    <div className="min-h-screen bg-slate-950 antialiased selection:bg-blue-500/30 pt-24 pb-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-24 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         {/* Main card - glass style */}
         <>

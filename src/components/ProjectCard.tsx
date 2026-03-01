@@ -12,6 +12,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <div className="
       group 
+      h-full             /* Forza l'altezza piena */
+      flex flex-col      /* Layout verticale */
       rounded-2xl 
       overflow-hidden 
       transition-all duration-300 
@@ -22,31 +24,31 @@ export function ProjectCard({ project }: ProjectCardProps) {
       shadow-lg shadow-black/20
     ">
       
-    {/* IMAGE + MAIN TAG */}
-    {images && images[0] && (
-      <div className="relative w-full h-48 overflow-hidden rounded-t-2xl">
-        <img
-          src={images[0]}
-          alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-        />
+      {/* IMAGE + MAIN TAG */}
+      {images && images && (
+        <div className="relative w-full h-48 flex-shrink-0 overflow-hidden rounded-t-2xl">
+          <img
+            src={images[0]}
+            alt={title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          />
 
-        {/* MAIN TAG BADGE */}
-        {mainTag && (
-          <span className="absolute top-2 right-2 z-20 px-2 py-1 text-xs font-bold uppercase bg-blue-600 text-white rounded-full shadow-lg">
-            {mainTag}
-          </span>
-        )}
-      </div>
-    )}
+          {/* MAIN TAG BADGE */}
+          {mainTag && (
+            <span className="absolute top-2 right-2 z-20 px-2 py-1 text-xs font-bold uppercase bg-blue-600 text-white rounded-full shadow-lg">
+              {mainTag}
+            </span>
+          )}
+        </div>
+      )}
 
       {/* CARD CONTENT */}
-      <div className="p-6">
+      <div className="p-6 flex flex-col flex-grow">
         <div className="flex justify-between items-start mb-4">
           <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors">
             {title}
           </h3>
-          <div className="flex space-x-2">
+          <div className="flex flex-shrink-0 space-x-2">
             {githubUrl && (
               <a href={githubUrl} target="_blank" rel="noopener noreferrer"
                  className="text-gray-400 hover:text-white transition-colors">
@@ -62,9 +64,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </div>
         </div>
         
-        <p className="text-gray-400 mb-4 line-clamp-2">{description}</p>
+        {/* line-clamp-3 assicura che il testo non rompa il layout se troppo lungo */}
+        <p className="text-gray-400 mb-4 line-clamp-3 flex-grow">
+          {description}
+        </p>
         
-        <div className="flex flex-wrap gap-2 mb-4">
+        <div className="flex flex-wrap gap-2 mb-6">
           {tags.map((tag) => (
             <span key={tag} className="px-3 py-1 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-full">
               {tag}
@@ -72,12 +77,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        <Link 
-          href={`/projects/${slug}`}
-          className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 transition-colors"
-        >
-          Read case study →
-        </Link>
+        {/* mt-auto spinge questo div in fondo alla card */}
+        <div className="mt-auto pt-2">
+          <Link 
+            href={`/projects/${slug}`}
+            className="inline-flex items-center text-sm text-blue-400 hover:text-blue-300 transition-colors"
+          >
+            Read case study →
+          </Link>
+        </div>
       </div>
     </div>
   );
