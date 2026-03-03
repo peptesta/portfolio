@@ -2,7 +2,8 @@ import {
   Brain,
   Leaf,
   Activity,
-  type LucideIcon
+  type LucideIcon,
+  Glasses
 } from 'lucide-react';
 
 export interface Project {
@@ -80,7 +81,7 @@ export const projects: Project[] = [
       "Utilized Tailwind CSS and Radix UI primitives for high accessibility (WCAG) compliance",
       "Leveraged Prisma ORM for type-safe database queries and efficient data fetching"
     ],
-    technologies: ["Next.js 14", "TypeScript", "Prisma", "PostgreSQL", "Tailwind CSS", "Zod"],
+    technologies: ["Next.js 14", "TypeScript", "PostgreSQL", "Tailwind CSS", "Zod", "Supabase"],
     images: ["/images/fisioabadia-dashboard.png", "/images/physio-dashboard.jpg"]
   },
   {
@@ -107,6 +108,30 @@ export const projects: Project[] = [
     ],
     technologies: ["Python (Jupyter)", "Scikit-Learn", "Pandas", "Seaborn", "PowerPoint", "Statistics"],
     images: ["/images/generic.png", "/images/ai-accuracy-report.jpg"]
+  },
+  {
+    slug: "psychologist-web-site",
+    mainTag: "Web App",
+    title: "Tanit Terron: Psychologist Website",
+    description: "Psychologist website to present the professional and highlights her new way of making compromises",
+    longDescription: "",
+    tags: ["Next.js", "TypeScript", "CSS", "Lucide React"],
+    icon: Glasses,
+    githubUrl: "https://github.com/peptesta/tanit-terron",
+    liveUrl: "https://tanit-terron.vercel.app/",
+    featured: true,
+    challenges: [
+      "Engineering a 'Commitment Logic' that accurately tracks the €5 return per session across milestones",
+      "Balancing a playful 'hand-drawn' aesthetic with high accessibility for patients of all ages",
+      "Managing the delicate relational data between therapeutic progress, single-payment packages, and session attendance"
+    ],
+    solutions: [
+      "Implemented server-side validation in PostgreSQL to manage the 'Circle of Investment' and prevent scheduling conflicts",
+      "Utilized Tailwind CSS and custom SVG filters to create a hand-drawn UI that remains WCAG compliant",
+      "Leveraged Prisma ORM to ensure type-safe tracking of the 'Patto di Impegno' and patient milestone rewards"
+    ],
+    technologies: ["Next.js", "TypeScript", "CSS"],
+    images: ["/images/tanit-terron.png"]
   },
 ];
 
