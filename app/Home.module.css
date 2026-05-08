@@ -7,8 +7,6 @@
   align-items: center;
   justify-content: center;
 
-  overflow: hidden;
-
   padding-inline: clamp(20px, 4vw, 60px);
 
   gap: clamp(30px, 4vw, 70px);
@@ -160,8 +158,6 @@
     align-items: center;
 
     text-align: center;
-
-    overflow: hidden;
 
     padding-top: 20px;
     padding-bottom: 20px;
