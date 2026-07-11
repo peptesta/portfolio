@@ -9,7 +9,7 @@ export default function About() {
       {/* TOP TITLE */}
       <section className={styles.hero}>
         <h1 className={styles.mainTitle}>
-          Building Meaningful Digital Experiences.
+          Building Scalable Data-Driven Solutions.
         </h1>
       </section>
 
@@ -21,15 +21,20 @@ export default function About() {
 
           <div className={styles.bio}>
             <p>
-              I am a computer science professional and a graduate of the
-              University of Naples Federico II. My professional experience
-              ranges from infrastructure technical support and systems
-              automation to the development of full-stack web architectures.
+              I am a Computer Science graduate from the University of Naples
+              Federico II with a strong focus on{" "}
+              <strong>Data Engineering</strong> and full-stack development. I
+              currently work as a Full-Stack &amp; Data Developer, where I
+              architect high-performance relational databases and write
+              ultra-fast SQL queries to support globally distributed platforms.
             </p>
             <p>
-              I have a strong inclination for problem-solving, developed both in
-              corporate environments optimizing databases and workflows and as a
-              university tutor in scientific subjects and programming languages.
+              My experience spans from managing{" "}
+              <strong>5,000+ user profiles</strong> and building custom admin
+              panels for real-time data manipulation, to implementing ETL
+              pipelines and integrating Machine Learning models. I am passionate
+              about Big Data, performance optimization, and solving complex
+              engineering challenges at scale.
             </p>
           </div>
 
@@ -38,18 +43,23 @@ export default function About() {
             <span className={styles.smallTitle}>Core Competencies</span>
             <ul className={styles.bio}>
               <li>
-                <strong>Web Development:</strong> Experienced in languages such
-                as JavaScript, Python, Java, and C++, alongside technologies
-                like React, Next.js, Vue, and Supabase.
+                <strong>Data Engineering:</strong> Expert in{" "}
+                <strong>SQL</strong> (PostgreSQL, Supabase) and{" "}
+                <strong>Python</strong> for ETL pipelines, data processing, and
+                performance optimization. Experience writing ultra-fast queries
+                for internationally distributed platforms.
               </li>
               <li>
-                <strong>Data & AI:</strong> Ability to analyze large scale
-                datasets (1.5M+ entries), implement ETL pipelines, and integrate
-                computer vision models.
+                <strong>Web Development:</strong> Full-stack development with
+                JavaScript, TypeScript, React, Next.js, and Vue. Implementation
+                of <strong>optimistic updates</strong> and responsive UIs for
+                seamless user experiences.
               </li>
               <li>
-                <strong>Infrastructure:</strong> Management of Linux/Windows
-                systems, LAN networks, and containerization with Docker.
+                <strong>Infrastructure &amp; Cloud:</strong> Linux/Windows
+                system administration, automation with Bash, containerization
+                with Docker, and <strong>AWS</strong> (Solutions Architect – In
+                Progress).
               </li>
               <li>
                 <strong>Languages:</strong> International profile with
@@ -76,8 +86,8 @@ export default function About() {
         {/* RIGHT STATS */}
         <div className={styles.right}>
           <div className={styles.stat}>
-            <h2>1.5M+</h2>
-            <p>Data Points Processed</p>
+            <h2>5,000+</h2>
+            <p>User Profiles Managed</p>
           </div>
 
           <div className={styles.stat}>
@@ -87,7 +97,7 @@ export default function About() {
 
           <div className={styles.stat}>
             <h2>10+</h2>
-            <p>Technologies & Tools</p>
+            <p>Tech Stack Tools</p>
           </div>
         </div>
       </section>

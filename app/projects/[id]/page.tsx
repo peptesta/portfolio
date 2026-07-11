@@ -1,3 +1,5 @@
+"use client";
+
 import { projects } from "../../assets/projects";
 import Link from "next/link";
 import { use } from "react";
@@ -36,14 +38,17 @@ export default function ProjectPage({ params }: Props) {
           ← Back
         </Link>
 
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.live}
-        >
-          Live Demo
-        </a>
+        {/* Live Demo - mostrato solo se NON ha PDF */}
+        {!project.hasPDF && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.live}
+          >
+            Live Demo
+          </a>
+        )}
       </div>
 
       {/* CONTENT */}
@@ -62,25 +67,30 @@ export default function ProjectPage({ params }: Props) {
               </span>
             ))}
           </div>
+
+          {/* PDF BUTTON - mostrato solo se hasPDF è true e pdfUrl esiste */}
+          {project.hasPDF && project.pdfUrl && (
+            <a
+              href={project.pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.pdfButton}
+            >
+              <FiFileText /> View Full Report (PDF)
+            </a>
+          )}
         </div>
 
         {/* RIGHT IMAGE */}
-        {project.hasPDF && project.pdfUrl && (
-          <a
-            href={project.pdfUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.pdfButton}
-          >
-            View PDF <FiFileText />
-          </a>
-        )}
         <div className={styles.right}>
           <div className={styles.imageWrapper}>
             <img
               src={project.image}
               alt={project.title}
               className={styles.image}
+              onError={(e) => {
+                (e.target as HTMLImageElement).src = "/placeholder.png";
+              }}
             />
           </div>
         </div>

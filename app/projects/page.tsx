@@ -71,14 +71,16 @@ export default function Projects() {
 
             {/* BUTTONS */}
             <div className={styles.buttons}>
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={styles.button}
-              >
-                Live Demo
-              </a>
+              {!project.hasPDF && (
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.button}
+                >
+                  Live Demo
+                </a>
+              )}
 
               <Link
                 href={`/projects/${project.id}`}
