@@ -26,14 +26,15 @@ export default async function ProjectPage({
       </h1>
       <p className="mt-2 text-muted">{project.description}</p>
 
-      <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-2xl border border-line bg-black">
+      <div className="mt-8 flex justify-center overflow-hidden rounded-2xl border border-line bg-black">
         <Image
           src={project.image}
           alt={project.title}
-          fill
+          width={project.imageWidth}
+          height={project.imageHeight}
           sizes="768px"
           priority
-          className="object-cover"
+          className="h-auto max-h-[70vh] w-auto max-w-full object-contain"
         />
       </div>
 

@@ -7,9 +7,9 @@ import { projects } from "@/lib/projects";
 
 // Galleria "sparsa" che scorre in diagonale con parallasse, mentre lo sfondo
 // passa da scuro a chiaro. Coordinate: x/w in vw, y in vh.
-const TRAVEL_X = 230; // vw percorsi a profondità 1
+const TRAVEL_X = 290; // vw percorsi a profondità 1
 const TRAVEL_Y = 14; // vh percorsi a profondità 1
-const SCROLL_VH = 380;
+const SCROLL_VH = 480;
 
 // Ogni progetto passa dal centro dello schermo quando lo scroll arriva a `pc`
 // (0→1) e in quel momento la sua cima è a `yc` vh: x/y di partenza sono
@@ -21,12 +21,13 @@ const BIGGEST_PX = Math.max(...projects.map((p) => p.imageWidth));
 const BIGGEST_VW = 40; // larghezza (vw) dell'immagine più grande
 // yc alterna tra alto e basso: più è grande la differenza, più sono sfalsate
 const LAYOUT = [
-  { pc: 0.14, yc: 24.5, d: 1.0 },
-  { pc: 0.34, yc: 39.5, d: 1.1 },
-  { pc: 0.52, yc: 24.5, d: 1.0 },
-  { pc: 0.72, yc: 39.5, d: 1.1 },
-  { pc: 0.85, yc: 26.5, d: 1.2 },
-  { pc: 1.03, yc: 39.5, d: 1.2 },
+  { pc: 0.12, yc: 24.5, d: 1.0 },
+  { pc: 0.28, yc: 39.5, d: 1.1 },
+  { pc: 0.44, yc: 24.5, d: 1.0 },
+  { pc: 0.6, yc: 39.5, d: 1.1 },
+  { pc: 0.76, yc: 24.5, d: 1.0 },
+  { pc: 0.92, yc: 39.5, d: 1.1 },
+  { pc: 1.08, yc: 26.5, d: 1.2 },
 ];
 const MAIN = projects.map((p, i) => {
   const l = LAYOUT[i % LAYOUT.length];
