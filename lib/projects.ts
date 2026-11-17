@@ -91,4 +91,18 @@ export const projects: Project[] = [
     hasPDF: true,
     pdfUrl: "/projects/Big_Five_presentation.pdf",
   },
+  {
+    id: "tanit-terron",
+    title: "Tanit Terron",
+    description: "Psychologist website with a hand-drawn identity",
+    longDescription:
+      "Website for a psychologist, built to present her practice and her new way of making commitments with patients. Designed a playful hand-drawn aesthetic (custom SVG filters) while keeping the interface accessible for patients of all ages, and modelled the 'commitment' logic that tracks progress and milestone rewards across sessions.",
+    image: "/projects/tanitterron.png",
+    imageWidth: 1827,
+    imageHeight: 930,
+    liveUrl: "https://tanit-terron.vercel.app/",
+    tags: ["Next.js", "TypeScript", "CSS", "Lucide React"],
+    hasPDF: false,
+    pdfUrl: "",
+  },
 ];
