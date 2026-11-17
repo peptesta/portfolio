@@ -1,143 +1,69 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@200..900&display=swap");
+@import "tailwindcss";
 
-/* =========================
-   THEME
-========================= */
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --grain-opacity: 0.06;
-
-  --navbar-height: 80px;
+@theme inline {
+  --color-bg: #050507;
+  --color-surface: #111114;
+  --color-line: #26262a;
+  --color-fg: #f2f2f2;
+  --color-muted: #8a8a93;
+  --color-accent: #f2f2f2;
+  --color-paper: #e9e8e4;
+  --color-ink: #0b0b0c;
+  --font-sans: var(--font-geist), system-ui, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
 }
 
-html.dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --grain-opacity: 0.12;
-}
-
-/* =========================
-   RESET
-========================= */
-
-* {
-  box-sizing: border-box;
-}
-
-/* =========================
-   BASE
-========================= */
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-
-  min-height: 100%;
-
-  font-family: "Source Serif 4", serif;
-}
-
-/* =========================
-   BODY
-========================= */
+html { scroll-behavior: smooth; }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-
-  position: relative;
-
-  transition:
-    background 0.3s ease,
-    color 0.3s ease;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
 }
 
-@media (min-width: 1100px) {
-  body {
-    height: 100vh;
-  }
+::selection { background: var(--color-fg); color: #000; }
+
+.display {
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 0.88;
+  text-transform: uppercase;
 }
 
-/* =========================
-   BACKGROUND IMAGE
-========================= */
-
-body::after {
-  content: "";
-
-  position: fixed;
-  inset: 0;
-
-  background-image: url("/background-light.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
-  opacity: 0.08;
-
-  z-index: -2;
-
-  pointer-events: none;
+.loader-idle {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1.02;
+  opacity: 0;
+}
+.loader-draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1.02;
+  animation: loader-draw 1.5s cubic-bezier(0.65, 0, 0.35, 1) 0.15s forwards;
+}
+@keyframes loader-draw {
+  from { opacity: 1; stroke-dashoffset: 1.02; }
+  to { opacity: 1; stroke-dashoffset: 0; }
+}
+.loader-text {
+  opacity: 0;
+  animation: loader-text 0.7s ease-out 0.5s forwards;
+}
+@keyframes loader-text {
+  to { opacity: 1; }
 }
 
-html.dark body::after {
-  background-image: url("/background-dark.jpg");
-  opacity: 0.06;
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s cubic-bezier(.2,.7,.2,1), transform 0.9s cubic-bezier(.2,.7,.2,1);
 }
+[data-reveal].in { opacity: 1; transform: none; }
 
-/* =========================
-   NOISE
-========================= */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
 
-body::before {
-  content: "";
-
-  position: fixed;
-  inset: 0;
-
-  background: url("/noise.jpg") repeat;
-
-  opacity: var(--grain-opacity);
-
-  pointer-events: none;
-
-  z-index: -1;
-
-  mix-blend-mode: overlay;
-}
-
-body::before {
-  z-index: 0;
-}
-
-body::after {
-  z-index: -1;
-}
-
-body {
-  position: relative;
-  isolation: isolate;
-}
-
-/* =========================
-   LAYERS
-========================= */
-
-main {
-  position: relative;
-  z-index: 1;
-
-  width: 100%;
-
-  padding-top: 40px;
-
-  box-sizing: border-box;
-}
-
-nav {
-  position: relative;
-  z-index: 10;
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .loader-draw { animation-duration: 0.01s; }
 }
