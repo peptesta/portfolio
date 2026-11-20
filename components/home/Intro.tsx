@@ -9,7 +9,9 @@ export default function Intro() {
           src="/intro.jpg"
           alt="Silhouette di un uomo al tramonto"
           fill
-          sizes="100vw"
+          sizes="(max-width: 640px) 320vw, 100vw"
+          quality={90}
+          priority
           className="object-cover object-[50%_65%]"
         />
         {/* sfumature per mantenere leggibili i testi sul cielo chiaro */}

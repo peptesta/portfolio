@@ -17,11 +17,9 @@ const slides = [
     label: "Education",
     title: "Computer Science",
     period: "Sep 2022 — Apr 2026",
-    text: "Bachelor's degree at the University of Naples Federico II, graduated 110/110, with a strong focus on networks, operating systems and architecture.",
+    text: "Bachelor's degree at the University of Naples Federico II, graduated 110/110.",
     milestones: [
       { k: "Degree", v: "BSc Computer Science (L-31), 110/110" },
-      { k: "Top marks", v: "Networks, Operating Systems, Architecture: 30/30" },
-      { k: "Also", v: "Operating Systems Lab 28/30, Software Engineering 25/30" },
     ],
     ghost: "2022",
     month: "September",
@@ -272,14 +270,14 @@ export default function Experience() {
         </div>
 
         {/* tab */}
-        <div className="absolute bottom-6 left-[7vw] flex gap-2 sm:left-[8vw]">
+        <div className="no-scrollbar absolute bottom-28 left-[7vw] right-0 flex gap-2 overflow-x-auto pr-[7vw] sm:left-[8vw] sm:right-auto sm:overflow-visible sm:pr-0">
           {slides.map(
             (s, i) =>
               s.tab && (
                 <button
                   key={s.tab}
                   onClick={() => goTo(i)}
-                  className={`rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-widest transition ${
+                  className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 font-mono text-[10px] uppercase tracking-widest transition ${
                     i === active
                       ? "bg-white text-black"
                       : "border border-line text-muted hover:text-fg"

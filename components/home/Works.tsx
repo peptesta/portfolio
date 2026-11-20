@@ -10,13 +10,13 @@ import { projects } from "@/lib/projects";
 const TRAVEL_X = 290; // vw percorsi a profondità 1
 const TRAVEL_Y = 14; // vh percorsi a profondità 1
 const SCROLL_VH = 480;
+const MOBILE_TX = 1.5; // su mobile le immagini sono più distanziate in orizzontale
 
 // Ogni progetto passa dal centro dello schermo quando lo scroll arriva a `pc`
 // (0→1) e in quel momento la sua cima è a `yc` vh: x/y di partenza sono
 // ricavate di conseguenza, così in primo piano non finisce mai fuori schermo.
 // Le immagini mantengono il loro rapporto reale (nessun ritaglio) e le
 // larghezze sono proporzionali alle dimensioni originali.
-const MAX_H_VH = 46; // altezza massima dell'immagine
 const BIGGEST_PX = Math.max(...projects.map((p) => p.imageWidth));
 const BIGGEST_VW = 40; // larghezza (vw) dell'immagine più grande
 // yc alterna tra alto e basso: più è grande la differenza, più sono sfalsate
@@ -43,14 +43,9 @@ const MAIN = projects.map((p, i) => {
 });
 
 // Lo scroll della galleria finisce (e la pagina riprende a scorrere in
-// verticale) quando l'ultimo progetto è entrato del tutto: il suo bordo destro
-// è a EDGE_MARGIN_VW dal bordo destro dello schermo.
-const EDGE_MARGIN_VW = 5;
+// verticale) quando l'ultimo progetto ha raggiunto il centro dello schermo.
 const LAST = MAIN[MAIN.length - 1];
-const P_END = Math.min(
-  1,
-  LAST.pc + (LAST.w / 2 - (50 - EDGE_MARGIN_VW)) / (TRAVEL_X * LAST.d),
-);
+const P_END = LAST.pc;
 
 // immagini piccole sullo sfondo (strato lontano)
 const FAR = [
@@ -88,9 +83,14 @@ export default function Works() {
       st.style.backgroundColor = mix(DARK, LIGHT, t);
       st.style.color = mix(WHITE, INK, t);
 
+      // su mobile lo scroll è solo orizzontale e un po' più ampio
+      const mobile = matchMedia("(max-width: 639px)").matches;
+      const tx = mobile ? MOBILE_TX : 1;
+      const ty = mobile ? 0 : TRAVEL_Y;
+
       st.querySelectorAll<HTMLElement>("[data-depth]").forEach((el) => {
         const d = Number(el.dataset.depth);
-        el.style.transform = `translate3d(${-p * TRAVEL_X * d}vw, ${-p * TRAVEL_Y * d}vh, 0)`;
+        el.style.transform = `translate3d(${-p * TRAVEL_X * tx * d}vw, ${-p * ty * d}vh, 0)`;
       });
     };
     const onScroll = () => {
@@ -146,7 +146,7 @@ export default function Works() {
             aria-hidden
             className="absolute will-change-transform"
             style={{
-              left: `${f.x * (TRAVEL_X / 230)}vw`,
+              left: `calc(var(--tx) * ${f.x * (TRAVEL_X / 230)}vw)`,
               top: `${f.y}vh`,
               width: `${f.w}vw`,
             }}
@@ -171,9 +171,10 @@ export default function Works() {
               data-depth={m.d}
               className="absolute will-change-transform"
               style={{
-                left: `${m.x}vw`,
-                top: `${m.y}vh`,
-                width: `max(min(${m.w}vw, ${MAX_H_VH * m.ratio}vh), 150px)`,
+                left: `calc(${50 - m.w / 2}vw - (var(--ws) - 1) * ${m.w / 2}vw + var(--tx) * ${m.pc * TRAVEL_X * m.d}vw)`,
+                // desktop: yc alternato; mobile: due fasce fisse (alta/bassa) dentro la viewport
+                top: `calc(var(--dy) * ${m.pc * TRAVEL_Y * m.d}vh + (1 - var(--m)) * ${m.yc}vh + var(--m) * ${i % 2 === 0 ? 9 : 52}vh)`,
+                width: `max(min(calc(var(--ws) * ${m.w}vw), calc(var(--hcap) * ${m.ratio}vh)), 150px)`,
               }}
             >
               <Link href={`/projects/${p.id}`} className="group block">
