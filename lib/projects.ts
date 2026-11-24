@@ -71,6 +71,20 @@ export const projects: Project[] = [
     pdfUrl: "",
   },
   {
+    id: "dont-forget-your-food",
+    title: "Don't Forget Your Food",
+    description: "Food expiry tracker with OCR photo and receipt scanning",
+    longDescription:
+      "Mobile-first web app that helps households avoid food waste by tracking product expiry dates. Users photograph a product's name and expiry date, or upload a grocery receipt, and a self-hosted OCR pipeline (PaddleOCR with OpenCV preprocessing) extracts the data for review before saving. The receipt flow parses product lines, merges overlapping photos and fuzzy-matches items against an Open Food Facts catalog while filtering out non-food lines. OCR runs in a pool of worker processes with the model preloaded, with batch progress streamed to the UI via Server-Sent Events. A daily scheduled job emails users about products expiring in 1 or 3 days. FastAPI backend with async SQLAlchemy on PostgreSQL, JWT access/refresh tokens, 91 backend tests, Alembic migrations, and Docker images published by GitHub Actions.",
+    image: "/projects/dontforgetyourfood.png",
+    imageWidth: 400,
+    imageHeight: 632,
+    liveUrl: "https://github.com/peptesta/dontforgetyourfood",
+    tags: ["FastAPI", "React", "TypeScript", "PostgreSQL", "PaddleOCR", "OpenCV", "Docker"],
+    hasPDF: false,
+    pdfUrl: "",
+  },
+  {
     id: "brewmate",
     title: "BrewMate",
     description: "Craft beer analytics Progressive Web App",
