@@ -113,6 +113,20 @@ export const projects: Project[] = [
     pdfUrl: "/projects/keystopredictdivorce.pdf",
   },
   {
+    id: "w1seguy-thm-writeup",
+    title: "W1seGuy – TryHackMe CTF Write-up",
+    description: "Cryptography CTF write-up: breaking a repeating-key XOR",
+    longDescription:
+      "Write-up of the W1seGuy crypto challenge on TryHackMe (Easy, November 2026). Analysed the source code of a Python network service and found its weaknesses: a 5-character key generated with a non-cryptographic PRNG and a repeating-key XOR scheme. Scanned the target with Nmap and interacted with the exposed service (TCP 1337) via Netcat. Used the known flag format (THM{...}) and the modulo property of the key index to recover the full key with a known-plaintext attack, then automated it with a Python script that takes the server's hex output and returns the key and the decrypted flag. Documented the process with lessons learned on secure key generation and on the difference between encoding, encryption and hashing.",
+    image: "/projects/w1seguy.png",
+    imageWidth: 1600,
+    imageHeight: 820,
+    liveUrl: "https://github.com/peptesta/thm-writeups/tree/main/w1seguy",
+    tags: ["CTF", "TryHackMe", "Cryptography", "XOR", "Python", "Write-up"],
+    hasPDF: false,
+    pdfUrl: "",
+  },
+  {
     id: "big-five-analysis",
     title: "Big Five Personality Analysis",
     description: "Clustering analysis of personality survey data",

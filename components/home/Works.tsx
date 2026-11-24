@@ -28,7 +28,8 @@ const LAYOUT = [
   { pc: 0.76, yc: 24.5, d: 1.0 },
   { pc: 0.92, yc: 39.5, d: 1.1 },
   { pc: 1.08, yc: 24.5, d: 1.0 },
-  { pc: 1.24, yc: 26.5, d: 1.2 },
+  { pc: 1.24, yc: 39.5, d: 1.1 },
+  { pc: 1.4, yc: 26.5, d: 1.2 },
 ];
 const MAIN = projects.map((p, i) => {
   const l = LAYOUT[i % LAYOUT.length];
@@ -47,6 +48,7 @@ const MAIN = projects.map((p, i) => {
 // verticale) quando l'ultimo progetto ha raggiunto il centro dello schermo.
 const LAST = MAIN[MAIN.length - 1];
 const P_END = LAST.pc;
+const HOLD = 0.9; // frazione di scroll usata per l'animazione
 
 // immagini piccole sullo sfondo (strato lontano)
 const FAR = [
@@ -77,7 +79,9 @@ export default function Works() {
       const st = stage.current;
       if (!w || !st) return;
       const total = w.offsetHeight - innerHeight;
-      const p = clamp(-w.getBoundingClientRect().top / total) * P_END;
+      // l'ultimo progetto arriva al centro al 90% dello scroll e ci resta fermo
+      // fino alla fine (margine anche per la barra del browser mobile)
+      const p = clamp(-w.getBoundingClientRect().top / (total * HOLD)) * P_END;
 
       // sfondo scuro → chiaro e testo chiaro → scuro
       const t = clamp((p - 0.12) / 0.5);
