@@ -27,7 +27,8 @@ const LAYOUT = [
   { pc: 0.6, yc: 39.5, d: 1.1 },
   { pc: 0.76, yc: 24.5, d: 1.0 },
   { pc: 0.92, yc: 39.5, d: 1.1 },
-  { pc: 1.08, yc: 26.5, d: 1.2 },
+  { pc: 1.08, yc: 24.5, d: 1.0 },
+  { pc: 1.24, yc: 26.5, d: 1.2 },
 ];
 const MAIN = projects.map((p, i) => {
   const l = LAYOUT[i % LAYOUT.length];
