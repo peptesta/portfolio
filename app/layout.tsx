@@ -13,9 +13,10 @@ const serif = Instrument_Serif({
 const mono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "Giuseppe Testa — Full-Stack & Data Developer",
+  metadataBase: new URL("https://portfolio-giuseppe-testa.vercel.app"),
+  title: "Giuseppe Testa — Full-Stack Developer & Cybersecurity",
   description:
-    "Portfolio of a Computer Science graduate focused on data engineering and full-stack development.",
+    "Portfolio of a Computer Science graduate: full-stack developer moving into cybersecurity.",
 };
 
 export default function RootLayout({

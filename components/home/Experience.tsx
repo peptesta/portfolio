@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useT } from "@/lib/i18n";
 
 const slides = [
   {
@@ -99,6 +100,7 @@ export default function Experience() {
   const months = useRef<HTMLDivElement>(null);
   const marquee = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(0);
+  const t = useT();
 
   useEffect(() => {
     let raf = 0;
@@ -208,7 +210,7 @@ export default function Experience() {
               className="shrink-0"
               style={{ width: `${MONTH_STEP_VW}vw` }}
             >
-              {s.month}
+              {t(s.month)}
             </span>
           ))}
         </div>
@@ -220,9 +222,9 @@ export default function Experience() {
               className="absolute left-[7vw] top-1/2 w-[86vw] max-w-5xl -translate-y-1/2 will-change-transform sm:left-[8vw]"
             >
               <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.2em] text-muted sm:text-xs">
-                {s.label}
+                {t(s.label)}
                 {s.period && (
-                  <span className="ml-4 text-fg/60">{s.period}</span>
+                  <span className="ml-4 text-fg/60">{t(s.period)}</span>
                 )}
               </p>
               <h2
@@ -231,26 +233,26 @@ export default function Experience() {
               >
                 {i === 0 ? (
                   <>
-                    Where
+                    {t("Where")}
                     <br />
-                    I&apos;ve been
+                    {t("I’ve been")}
                   </>
                 ) : (
-                  s.title
+                  t(s.title)
                 )}
               </h2>
               <p className="mt-6 max-w-lg text-sm text-fg/75 sm:text-base">
-                {s.text}
+                {t(s.text)}
               </p>
               {s.milestones.length > 0 && (
                 <dl className="mt-8 grid max-w-3xl gap-5 sm:grid-cols-3">
                   {s.milestones.map((m) => (
                     <div key={m.k}>
                       <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-                        {m.k}
+                        {t(m.k)}
                       </dt>
                       <dd className="mt-1 text-xs text-fg/80 sm:text-sm">
-                        {m.v}
+                        {t(m.v)}
                       </dd>
                     </div>
                   ))}
@@ -283,7 +285,7 @@ export default function Experience() {
                       : "border border-line text-muted hover:text-fg"
                   }`}
                 >
-                  {s.tab}
+                  {t(s.tab)}
                 </button>
               ),
           )}

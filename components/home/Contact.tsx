@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import { T } from "@/lib/i18n";
 
 const socials = [
   { label: "GitHub", href: "https://github.com/peptesta" },
@@ -14,7 +15,7 @@ export default function Contact() {
       <div className="flex flex-1 flex-col items-center justify-center text-center">
         <Reveal>
           <h2 className="display bg-gradient-to-b from-white to-white/30 bg-clip-text text-[clamp(3.5rem,14vw,13rem)] text-transparent">
-            Let&apos;s talk
+            <T>Let’s talk</T>
           </h2>
         </Reveal>
         <Reveal
@@ -32,17 +33,18 @@ export default function Contact() {
               {s.label}
             </a>
           ))}
-          {/* PLACEHOLDER: inserire email reale */}
           <a
-            href="mailto:hello@example.com"
+            href="mailto:sonsycomb@gmail.com"
             className="rounded-full bg-white px-5 py-2 font-mono text-[11px] uppercase tracking-widest text-black"
           >
-            Contact me
+            <T>Contact me</T>
           </a>
         </Reveal>
       </div>
       <footer className="flex justify-between py-8 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
-        <span>Portfolio · All rights reserved</span>
+        <span>
+          <T>Portfolio · All rights reserved</T>
+        </span>
         <span>© {new Date().getFullYear()} Giuseppe Testa</span>
       </footer>
     </section>

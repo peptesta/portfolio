@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { projects } from "@/lib/projects";
+import { useT } from "@/lib/i18n";
 
 // Galleria "sparsa" che scorre in diagonale con parallasse, mentre lo sfondo
 // passa da scuro a chiaro. Coordinate: x/w in vw, y in vh.
@@ -28,8 +29,7 @@ const LAYOUT = [
   { pc: 0.76, yc: 24.5, d: 1.0 },
   { pc: 0.92, yc: 39.5, d: 1.1 },
   { pc: 1.08, yc: 24.5, d: 1.0 },
-  { pc: 1.24, yc: 39.5, d: 1.1 },
-  { pc: 1.4, yc: 26.5, d: 1.2 },
+  { pc: 1.24, yc: 26.5, d: 1.2 },
 ];
 const MAIN = projects.map((p, i) => {
   const l = LAYOUT[i % LAYOUT.length];
@@ -59,6 +59,9 @@ const FAR = [
   { x: 318, y: 128, w: 11, d: 0.6, src: 4 },
 ];
 
+// progetti in evidenza (sono i primi della galleria)
+const FEATURED = ["la-despensa-de-eva", "tanit-terron", "ophryslens"];
+
 const DARK = [5, 5, 7];
 const LIGHT = [233, 232, 228];
 const INK = [11, 11, 12];
@@ -70,6 +73,7 @@ const mix = (a: number[], b: number[], t: number) =>
 export default function Works() {
   const wrap = useRef<HTMLElement>(null);
   const stage = useRef<HTMLDivElement>(null);
+  const t = useT();
 
   useEffect(() => {
     let raf = 0;
@@ -84,9 +88,9 @@ export default function Works() {
       const p = clamp(-w.getBoundingClientRect().top / (total * HOLD)) * P_END;
 
       // sfondo scuro → chiaro e testo chiaro → scuro
-      const t = clamp((p - 0.12) / 0.5);
-      st.style.backgroundColor = mix(DARK, LIGHT, t);
-      st.style.color = mix(WHITE, INK, t);
+      const k = clamp((p - 0.12) / 0.5);
+      st.style.backgroundColor = mix(DARK, LIGHT, k);
+      st.style.color = mix(WHITE, INK, k);
 
       // su mobile lo scroll è solo orizzontale e un po' più ampio
       const mobile = matchMedia("(max-width: 639px)").matches;
@@ -132,13 +136,13 @@ export default function Works() {
           className="absolute left-[7vw] top-[22vh] will-change-transform"
         >
           <p className="mb-4 font-mono text-[11px] uppercase tracking-[0.2em] opacity-60 sm:text-xs">
-            Projects · 2023 — Now
+            {t("Projects · 2023 — Now")}
           </p>
           <h2 className="display text-[clamp(3rem,10vw,9rem)]">
-            Selected
+            {t("Selected")}
             <br />
             <span className="font-serif font-normal normal-case italic tracking-normal">
-              works
+              {t("works")}
             </span>
           </h2>
         </div>
@@ -185,17 +189,18 @@ export default function Works() {
               <Link href={`/projects/${p.id}`} className="group block">
                 <p className="mb-2 font-mono text-[9px] uppercase tracking-[0.18em] opacity-70 sm:text-[10px]">
                   {p.title}
+                  {FEATURED.includes(p.id) && ` · ★ ${t("Featured")}`}
                 </p>
                 <Image
                   src={p.image}
-                  alt={p.title}
+                  alt={t(p.imageAlt)}
                   width={p.imageWidth}
                   height={p.imageHeight}
                   sizes="40vw"
                   className="h-auto w-full transition duration-700 group-hover:scale-[1.03]"
                 />
                 <p className="mt-2 max-w-[28ch] font-serif text-sm italic opacity-80 sm:text-base">
-                  {p.description}
+                  {t(p.description)}
                 </p>
               </Link>
             </div>
@@ -203,7 +208,7 @@ export default function Works() {
         })}
 
         <p className="absolute bottom-6 left-[7vw] font-mono text-[10px] uppercase tracking-[0.2em] opacity-60">
-          Scroll →
+          {t("Scroll →")}
         </p>
       </div>
     </section>

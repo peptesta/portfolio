@@ -4,10 +4,16 @@ export type Project = {
   description: string;
   longDescription: string;
   image: string;
+  imageAlt: string;
   /** dimensioni reali dell'immagine (px) */
   imageWidth: number;
   imageHeight: number;
+  /** sito, demo o codice; "" = nessun pulsante */
   liveUrl: string;
+  role: string;
+  client?: string;
+  period?: string;
+  status?: string;
   tags: string[];
   hasPDF: boolean;
   pdfUrl: string;
@@ -21,10 +27,16 @@ export const projects: Project[] = [
     longDescription:
       "Production e-commerce and management platform for a bakery, built as sole developer: product catalog, custom-cake configurator, persistent cart, multi-step checkout with online payments and webhooks, extra payments and refunds, discount codes, delivery calendar and shipping zones, event/catering quotes with installment plans, brunch booking, blog and newsletter. Business rules live at database level (PostgreSQL triggers, RPCs and row-level security), with 11 scheduled jobs and a GitHub Actions to Vercel deploy pipeline. Includes a role-based admin area (27 sections) and an analytics dashboard with hand-made d3 charts. Over 100k lines of TypeScript, 64 pages and 81 SQL migrations. Also handled technical SEO (Search Console audit, JSON-LD, sitemap, product feed) and tracking tools (server-side GA4, Meta Pixel, Clarity, Brevo newsletters).",
     image: "/projects/ladespensadeeva.png",
+    imageAlt:
+      "La Despensa de Eva home page in Spanish: the baker plating a dish, the headline “Tartas que enamoran” and a Google review card",
     imageWidth: 1822,
     imageHeight: 921,
     liveUrl: "https://ladespensadeeva.es",
-    tags: ["Next.js", "React", "TypeScript", "Supabase", "MONEI", "Brevo", "Vercel"],
+    role: "Solo developer",
+    client: "La Despensa de Eva, Sant Feliu de Llobregat",
+    period: "Feb 2026 — Present",
+    status: "In production",
+    tags: ["Next.js", "React", "TypeScript", "Supabase", "MONEI", "Brevo", "Vercel", "PostgreSQL", "d3", "GitHub Actions", "GA4"],
     hasPDF: false,
     pdfUrl: "",
   },
@@ -35,9 +47,13 @@ export const projects: Project[] = [
     longDescription:
       "Single-page Spanish-language website for an online emotional-support service (in progress), with hand-built animations and no animation libraries: a canvas-drawn pastel line that turns into a scroll-driven paper plane, spring-physics text that reacts to the cursor, and a scroll-synced horizontal storytelling section. Responsive and respects reduced-motion preferences.",
     image: "/projects/tanitterron.png",
+    imageAlt:
+      "Tanit Terron landing page in Spanish: headline, hand-drawn illustration and a card with three steps to book a free call",
     imageWidth: 1827,
     imageHeight: 930,
     liveUrl: "https://tanitterron.vercel.app",
+    role: "Solo design and development",
+    status: "In progress",
     tags: ["Next.js", "React", "TypeScript", "CSS Modules", "Canvas 2D"],
     hasPDF: false,
     pdfUrl: "",
@@ -47,12 +63,15 @@ export const projects: Project[] = [
     title: "OphrysLens",
     description: "Orchid species identification platform",
     longDescription:
-      "Full-stack platform that identifies six Ophrys orchid species from a photo, using ResNet-18 classifiers, an ensemble of one-vs-all models that rejects out-of-distribution images, and optional flower detection and cropping with Faster R-CNN. Explainability maps (Integrated Gradients, occlusion) show which parts of the image drive each prediction. Also includes a dataset-building tool with automatic bounding boxes, a manual box editor and ZIP export. Dockerized frontend and backend with 8 REST endpoints, benchmarked with accuracy, F1 and confusion matrices on four test sets (up to 99.2% accuracy).",
+      "Bachelor's thesis project: a web platform that identifies six Ophrys taxa (exaltata, garganica, incubacea, majellensis, sphegodes and sphegodes Palena) with ResNet-18 classifiers, either a single six-class model or a one-vs-all ensemble, with optional Faster R-CNN cropping and explainability maps (Integrated Gradients, occlusion). The hybrid-trained model reached 87.8% accuracy; with automatic cropping its F1 rose from 88.2% to 91.9%. Also includes a dataset-building tool with automatic bounding boxes, a manual box editor and ZIP export. Dockerized frontend and backend with 8 REST endpoints.",
     image: "/projects/ophryslens.png",
+    imageAlt:
+      "OphrysLens welcome screen with a collage of close-up photos of Ophrys orchids",
     imageWidth: 1855,
     imageHeight: 889,
-    liveUrl: "https://github.com/your-repo",
-    tags: ["Next.js", "Flask", "PyTorch", "Captum", "Docker"],
+    liveUrl: "https://github.com/peptesta/OphrysLens",
+    role: "Solo developer",
+    tags: ["Next.js", "Flask", "PyTorch", "Captum", "Docker", "ResNet-18", "Faster R-CNN"],
     hasPDF: false,
     pdfUrl: "",
   },
@@ -63,10 +82,14 @@ export const projects: Project[] = [
     longDescription:
       "Full-stack web app for physiotherapy clinic management built with Vue and Supabase (Auth, PostgreSQL), including authentication, user management and automated appointment booking.",
     image: "/projects/fisioabadia.png",
+    imageAlt:
+      "FisioAbadia home page in Italian: physiotherapy and neurological rehabilitation in Naples, over a photo of a treatment session",
     imageWidth: 1844,
     imageHeight: 956,
     liveUrl: "https://fisioabadia.vercel.app/",
-    tags: ["Vue", "Supabase", "PostgreSQL", "Full-stack"],
+    role: "Solo developer",
+    status: "Demo",
+    tags: ["Vue", "Supabase", "PostgreSQL"],
     hasPDF: false,
     pdfUrl: "",
   },
@@ -77,24 +100,14 @@ export const projects: Project[] = [
     longDescription:
       "Mobile-first web app that helps households avoid food waste by tracking product expiry dates. Users photograph a product's name and expiry date, or upload a grocery receipt, and a self-hosted OCR pipeline (PaddleOCR with OpenCV preprocessing) extracts the data for review before saving. The receipt flow parses product lines, merges overlapping photos and fuzzy-matches items against an Open Food Facts catalog while filtering out non-food lines. OCR runs in a pool of worker processes with the model preloaded, with batch progress streamed to the UI via Server-Sent Events. A daily scheduled job emails users about products expiring in 1 or 3 days. FastAPI backend with async SQLAlchemy on PostgreSQL, JWT access/refresh tokens, 91 backend tests, Alembic migrations, and Docker images published by GitHub Actions.",
     image: "/projects/dontforgetyourfood.png",
+    imageAlt:
+      "Mobile view of an empty pantry, in Spanish, with buttons to add photos or upload a receipt",
     imageWidth: 400,
     imageHeight: 632,
     liveUrl: "https://github.com/peptesta/dontforgetyourfood",
-    tags: ["FastAPI", "React", "TypeScript", "PostgreSQL", "PaddleOCR", "OpenCV", "Docker"],
-    hasPDF: false,
-    pdfUrl: "",
-  },
-  {
-    id: "brewmate",
-    title: "BrewMate",
-    description: "Craft beer analytics Progressive Web App",
-    longDescription:
-      "Progressive Web App processing 1.5M+ crowdsourced reviews. Built ETL pipelines for data cleaning and normalization, and geospatial analytics for localized pricing and availability insights.",
-    image: "/projects/brewmate.png",
-    imageWidth: 539,
-    imageHeight: 774,
-    liveUrl: "https://github.com/your-repo",
-    tags: ["Vue", "PWA", "Python", "ETL", "Geospatial Analytics"],
+    role: "Solo developer",
+    status: "In progress",
+    tags: ["FastAPI", "React", "TypeScript", "PostgreSQL", "PaddleOCR", "OpenCV", "Docker", "SQLAlchemy", "Alembic", "GitHub Actions"],
     hasPDF: false,
     pdfUrl: "",
   },
@@ -103,12 +116,15 @@ export const projects: Project[] = [
     title: "Keys to Predict Divorce",
     description: "Predictive analysis on behavioral survey data",
     longDescription:
-      "Predictive and statistical analysis on behavioral survey datasets derived from the Gottman questionnaire: data cleaning, exploratory analysis, correlation studies and a machine learning model (Python, Scikit-learn) estimating divorce likelihood.",
+      "Analysis of the Divorce Predictors Scale: 54 questions answered by 150 couples in Turkey. Questions about shared values, roles and sudden escalation correlate most with divorce. Includes a linear regression model in scikit-learn (R² 0.89 on test data). Limits: small single-country sample, self-reported answers, correlation is not causation.",
     image: "/projects/gottmanspreview.png",
+    imageAlt:
+      "Title slide “The keys to predict a divorce” over a snowy mountain landscape",
     imageWidth: 1577,
     imageHeight: 805,
-    liveUrl: "https://github.com/your-repo",
-    tags: ["Python", "Machine Learning", "Data Analysis", "Scikit-learn"],
+    liveUrl: "https://www.kaggle.com/code/peppetesta/divorce-analysis",
+    role: "Solo project",
+    tags: ["Python", "Scikit-learn", "Pandas", "Seaborn", "Matplotlib", "Data Analytics"],
     hasPDF: true,
     pdfUrl: "/projects/keystopredictdivorce.pdf",
   },
@@ -117,11 +133,15 @@ export const projects: Project[] = [
     title: "W1seGuy – TryHackMe CTF Write-up",
     description: "Cryptography CTF write-up: breaking a repeating-key XOR",
     longDescription:
-      "Write-up of the W1seGuy crypto challenge on TryHackMe (Easy, November 2026). Analysed the source code of a Python network service and found its weaknesses: a 5-character key generated with a non-cryptographic PRNG and a repeating-key XOR scheme. Scanned the target with Nmap and interacted with the exposed service (TCP 1337) via Netcat. Used the known flag format (THM{...}) and the modulo property of the key index to recover the full key with a known-plaintext attack, then automated it with a Python script that takes the server's hex output and returns the key and the decrypted flag. Documented the process with lessons learned on secure key generation and on the difference between encoding, encryption and hashing.",
+      "Write-up of W1seGuy, an Easy cryptography challenge on TryHackMe. A Python network service encodes the flag with a short repeating XOR key; since the flag format is known, a known-plaintext attack recovers the key, which I automated with a Python script. Main takeaways: keys need a cryptographically secure generator, and encoding, encryption and hashing are different things. Part of my hands-on practice while studying for CompTIA Security+; the full details are in the repository.",
     image: "/projects/w1seguy.png",
+    imageAlt:
+      "Terminal showing an Nmap scan, a Netcat session and a Python script recovering the XOR key, with key and flag masked",
     imageWidth: 1600,
     imageHeight: 820,
-    liveUrl: "https://github.com/peptesta/thm-writeups/tree/main/w1seguy",
+    liveUrl: "https://github.com/peptesta/thm-writeups/tree/main/W1seGuy",
+    role: "Solo project",
+    period: "November 2026",
     tags: ["CTF", "TryHackMe", "Cryptography", "XOR", "Python", "Write-up"],
     hasPDF: false,
     pdfUrl: "",
@@ -129,14 +149,17 @@ export const projects: Project[] = [
   {
     id: "big-five-analysis",
     title: "Big Five Personality Analysis",
-    description: "Clustering analysis of personality survey data",
+    description: "Statistical analysis of personality survey data",
     longDescription:
-      "Clustering analysis (K-means, hierarchical) on large-scale Big Five personality survey data, with data cleaning, exploratory analysis and statistical profiling of personality traits to identify behavioral patterns across groups.",
+      "Analysis of Big Five (IPIP) questionnaire responses collected online in 2016–2018: correlations between traits, differences across world regions, comparison with Hofstede's cultural dimensions (individualism vs openness, r = 0.50) and variation by time of day.",
     image: "/projects/bigfive_preview.png",
+    imageAlt:
+      "Title slide “Big Five Insight” with a line drawing of a head in profile and watercolour shapes",
     imageWidth: 1096,
     imageHeight: 613,
-    liveUrl: "https://github.com/your-repo",
-    tags: ["Python", "Data Analysis", "Clustering", "Pandas", "Scikit-learn"],
+    liveUrl: "",
+    role: "Solo project",
+    tags: ["Python", "Data Analysis", "Pandas"],
     hasPDF: true,
     pdfUrl: "/projects/Big_Five_presentation.pdf",
   },

@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { LangToggle, useT } from "@/lib/i18n";
 
 const links = [
   { href: "/#home", label: "Home" },
@@ -8,6 +11,7 @@ const links = [
 ];
 
 export default function Navbar() {
+  const t = useT();
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-40 flex items-center justify-between px-5 py-5 text-white mix-blend-difference sm:px-8">
       <Link
@@ -24,20 +28,23 @@ export default function Navbar() {
                 href={l.href}
                 className="opacity-70 transition hover:opacity-100"
               >
-                {l.label}
+                {t(l.label)}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
-      <a
-        href="/CV_eng.pdf"
-        target="_blank"
-        rel="noreferrer"
-        className="pointer-events-auto font-mono text-[11px] uppercase tracking-[0.2em] underline underline-offset-4"
-      >
-        CV ↗
-      </a>
+      <div className="pointer-events-auto flex items-center gap-5 font-mono text-[11px] uppercase tracking-[0.2em]">
+        <LangToggle className="cursor-pointer rounded-full border border-white/60 px-3 py-1 uppercase tracking-[0.2em] transition hover:bg-white hover:text-black" />
+        <a
+          href="/CV_eng.pdf"
+          target="_blank"
+          rel="noreferrer"
+          className="underline underline-offset-4"
+        >
+          CV ↗
+        </a>
+      </div>
     </header>
   );
 }
