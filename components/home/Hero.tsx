@@ -21,8 +21,8 @@ export default function Hero() {
       const w = wrap.current;
       const c = card.current;
       if (!w || !c) return;
-      // fase 1: zoom indietro (1 schermo di scroll)
-      // fase 2: la scritta si disegna man mano che si scrolla
+      // zoom indietro nel primo schermo di scroll; intanto la scritta si
+      // disegna fin dall'inizio, per tutta la durata del blocco
       // poi la hero si sblocca e lo scroll riprende normalmente
       const pin = w.offsetHeight - innerHeight;
       const zoomEnd = innerHeight;
@@ -31,9 +31,7 @@ export default function Hero() {
       const scale = 1 - p * (1 - MIN_SCALE);
       c.style.transform = `scale(${scale})`;
       c.style.borderRadius = `${p * 120}px`;
-      setDraw(
-        Math.round(clamp((scrollY - zoomEnd) / (pin - zoomEnd)) * 500) / 500,
-      );
+      setDraw(Math.round(clamp(scrollY / pin) * 500) / 500);
     };
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update);

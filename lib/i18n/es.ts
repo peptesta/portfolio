@@ -150,7 +150,7 @@ export const es: Record<string, string> = {
     "trabajos",
   "Featured":
     "Destacado",
-  "Scroll →":
+  "Scroll ↘":
     "Desliza →",
   "Let’s talk":
     "Hablemos",

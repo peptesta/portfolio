@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { isDiving } from "../dive";
 
 const COLUMNS = 4;
 const STAGGER_MS = 110; // intervallo tra una colonna e la successiva
@@ -25,11 +26,16 @@ const WAVE_PATH = (() => {
 })();
 
 export default function Loader() {
-  const [phase, setPhase] = useState<"show" | "hide" | "gone">("show");
+  // tornando da un progetto con il tuffo il loader non deve ricomparire
+  const [skip] = useState(isDiving);
+  const [phase, setPhase] = useState<"show" | "hide" | "gone">(
+    skip ? "gone" : "show",
+  );
   // l'animazione parte solo a pagina pronta (dopo l'hydration), così si vede davvero
   const [started, setStarted] = useState(false);
 
   useEffect(() => {
+    if (skip) return;
     document.body.style.overflow = "hidden";
     const raf = requestAnimationFrame(() => setStarted(true));
     const t1 = setTimeout(() => setPhase("hide"), SHOW_MS);
@@ -46,7 +52,7 @@ export default function Loader() {
       clearTimeout(t2);
       document.body.style.overflow = "";
     };
-  }, []);
+  }, [skip]);
 
   if (phase === "gone") return null;
 

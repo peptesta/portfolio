@@ -14,6 +14,7 @@ export default function ProjectImage({ project }: { project: Project }) {
       height={project.imageHeight}
       sizes="768px"
       priority
+      data-dive-target
       className="h-auto max-h-[70vh] w-auto max-w-full object-contain"
     />
   );

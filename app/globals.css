@@ -68,8 +68,8 @@ body {
   .loader-draw { animation-duration: 0.01s; }
 }
 
-:root { --ws: 1; --m: 0; --dy: 1; --tx: 1; --hcap: 46; }
-@media (max-width: 639px) { :root { --ws: 2; --m: 1; --dy: 0; --tx: 1.5; --hcap: 24; } }
+:root { --ws: 1; --tx: 1; --hcap: 46; }
+@media (max-width: 639px) { :root { --ws: 2; --tx: 1.5; --hcap: 24; } }
 .no-scrollbar { scrollbar-width: none; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 

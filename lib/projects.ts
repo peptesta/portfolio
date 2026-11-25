@@ -17,6 +17,8 @@ export type Project = {
   tags: string[];
   hasPDF: boolean;
   pdfUrl: string;
+  /** altre schermate, mostrate sullo sfondo della galleria (massimo 3) */
+  gallery?: { src: string; width: number; height: number }[];
 };
 
 export const projects: Project[] = [
@@ -26,7 +28,12 @@ export const projects: Project[] = [
     description: "E-commerce & admin platform for a bakery",
     longDescription:
       "Production e-commerce and management platform for a bakery, built as sole developer: product catalog, custom-cake configurator, persistent cart, multi-step checkout with online payments and webhooks, extra payments and refunds, discount codes, delivery calendar and shipping zones, event/catering quotes with installment plans, brunch booking, blog and newsletter. Business rules live at database level (PostgreSQL triggers, RPCs and row-level security), with 11 scheduled jobs and a GitHub Actions to Vercel deploy pipeline. Includes a role-based admin area (27 sections) and an analytics dashboard with hand-made d3 charts. Over 100k lines of TypeScript, 64 pages and 81 SQL migrations. Also handled technical SEO (Search Console audit, JSON-LD, sitemap, product feed) and tracking tools (server-side GA4, Meta Pixel, Clarity, Brevo newsletters).",
-    image: "/projects/ladespensadeeva.png",
+    image: "/projects/ladespensadeeva/ladespensadeeva.png",
+    gallery: [
+      { src: "/projects/ladespensadeeva/gif/gridshowoff.gif", width: 400, height: 202 },
+      { src: "/projects/ladespensadeeva/gif/ladespensa_brunch.gif", width: 400, height: 202 },
+      { src: "/projects/ladespensadeeva/img2.png", width: 1835, height: 925 },
+    ],
     imageAlt:
       "La Despensa de Eva home page in Spanish: the baker plating a dish, the headline “Tartas que enamoran” and a Google review card",
     imageWidth: 1822,
@@ -46,7 +53,12 @@ export const projects: Project[] = [
     description: "Landing website for an online emotional-support service",
     longDescription:
       "Single-page Spanish-language website for an online emotional-support service (in progress), with hand-built animations and no animation libraries: a canvas-drawn pastel line that turns into a scroll-driven paper plane, spring-physics text that reacts to the cursor, and a scroll-synced horizontal storytelling section. Responsive and respects reduced-motion preferences.",
-    image: "/projects/tanitterron.png",
+    image: "/projects/tanit/tanitterron.png",
+    gallery: [
+      { src: "/projects/tanit/gif1.gif", width: 400, height: 202 },
+      { src: "/projects/tanit/gif2.gif", width: 400, height: 202 },
+      { src: "/projects/tanit/img1.png", width: 1835, height: 925 },
+    ],
     imageAlt:
       "Tanit Terron landing page in Spanish: headline, hand-drawn illustration and a card with three steps to book a free call",
     imageWidth: 1827,
@@ -65,6 +77,11 @@ export const projects: Project[] = [
     longDescription:
       "Bachelor's thesis project: a web platform that identifies six Ophrys taxa (exaltata, garganica, incubacea, majellensis, sphegodes and sphegodes Palena) with ResNet-18 classifiers, either a single six-class model or a one-vs-all ensemble, with optional Faster R-CNN cropping and explainability maps (Integrated Gradients, occlusion). The hybrid-trained model reached 87.8% accuracy; with automatic cropping its F1 rose from 88.2% to 91.9%. Also includes a dataset-building tool with automatic bounding boxes, a manual box editor and ZIP export. Dockerized frontend and backend with 8 REST endpoints.",
     image: "/projects/ophryslens.png",
+    gallery: [
+      { src: "/projects/ophryslens/classificazione.png", width: 1854, height: 958 },
+      { src: "/projects/ophryslens/riquadri.png", width: 1852, height: 957 },
+      { src: "/projects/ophryslens/heatmap.png", width: 784, height: 386 },
+    ],
     imageAlt:
       "OphrysLens welcome screen with a collage of close-up photos of Ophrys orchids",
     imageWidth: 1855,
@@ -81,7 +98,11 @@ export const projects: Project[] = [
     description: "Physiotherapy clinic management web app",
     longDescription:
       "Full-stack web app for physiotherapy clinic management built with Vue and Supabase (Auth, PostgreSQL), including authentication, user management and automated appointment booking.",
-    image: "/projects/fisioabadia.png",
+    image: "/projects/fisioabadia/fisioabadia.png",
+    gallery: [
+      { src: "/projects/fisioabadia/img1.png", width: 1835, height: 925 },
+      { src: "/projects/fisioabadia/img2.png", width: 1835, height: 925 },
+    ],
     imageAlt:
       "FisioAbadia home page in Italian: physiotherapy and neurological rehabilitation in Naples, over a photo of a treatment session",
     imageWidth: 1844,
@@ -118,6 +139,11 @@ export const projects: Project[] = [
     longDescription:
       "Analysis of the Divorce Predictors Scale: 54 questions answered by 150 couples in Turkey. Questions about shared values, roles and sudden escalation correlate most with divorce. Includes a linear regression model in scikit-learn (R² 0.89 on test data). Limits: small single-country sample, self-reported answers, correlation is not causation.",
     image: "/projects/gottmanspreview.png",
+    gallery: [
+      { src: "/projects/divorce/domande-piu-influenti.png", width: 1000, height: 400 },
+      { src: "/projects/divorce/domande-meno-influenti.png", width: 1000, height: 400 },
+      { src: "/projects/divorce/tutte-le-domande.png", width: 1200, height: 1500 },
+    ],
     imageAlt:
       "Title slide “The keys to predict a divorce” over a snowy mountain landscape",
     imageWidth: 1577,
@@ -153,6 +179,11 @@ export const projects: Project[] = [
     longDescription:
       "Analysis of Big Five (IPIP) questionnaire responses collected online in 2016–2018: correlations between traits, differences across world regions, comparison with Hofstede's cultural dimensions (individualism vs openness, r = 0.50) and variation by time of day.",
     image: "/projects/bigfive_preview.png",
+    gallery: [
+      { src: "/projects/big-five/ritmo-giornaliero.png", width: 1400, height: 800 },
+      { src: "/projects/big-five/individualismo.png", width: 1800, height: 700 },
+      { src: "/projects/big-five/feriali-e-weekend.png", width: 1400, height: 1200 },
+    ],
     imageAlt:
       "Title slide “Big Five Insight” with a line drawing of a head in profile and watercolour shapes",
     imageWidth: 1096,

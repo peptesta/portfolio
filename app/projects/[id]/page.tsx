@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
+import BackToProjects from "@/components/BackToProjects";
 import ProjectImage from "@/components/ProjectImage";
 import { T } from "@/lib/i18n";
 import { projects } from "@/lib/projects";
@@ -67,9 +67,7 @@ export default async function ProjectPage({
 
   return (
     <main className="mx-auto max-w-3xl px-5 pb-20 pt-32">
-      <Link href="/#projects" className="text-sm text-muted hover:text-fg">
-        <T>← All projects</T>
-      </Link>
+      <BackToProjects id={project.id} />
       <h1 className="mt-6 text-4xl font-semibold tracking-tight">
         {project.title}
       </h1>
