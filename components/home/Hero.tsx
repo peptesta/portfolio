@@ -86,7 +86,7 @@ export default function Hero() {
             className="pointer-events-none absolute bottom-0 left-1/2 z-0 h-[68vh] w-auto -translate-x-1/2 object-contain object-bottom grayscale contrast-125"
           />
 
-          <div className="relative z-10 mt-auto flex items-end justify-between px-5 pb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-white sm:px-8 sm:text-ink">
+          <div className="relative z-10 mt-auto flex items-end justify-between px-5 pb-8 font-mono text-[11px] uppercase tracking-[0.2em] text-white [text-shadow:0_1px_6px_rgb(0_0_0/0.6)] sm:px-8 sm:text-ink sm:[text-shadow:none]">
             <p>
               {t("Designed")}
               <br />

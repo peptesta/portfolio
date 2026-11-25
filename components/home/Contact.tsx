@@ -41,6 +41,13 @@ export default function Contact() {
           </a>
         </Reveal>
       </div>
+      {/* torna in cima: lo scorrimento è morbido grazie a scroll-behavior */}
+      <a
+        href="#home"
+        className="self-center rounded-full border border-white/30 px-5 py-2 font-mono text-[11px] uppercase tracking-widest transition hover:bg-white hover:text-black"
+      >
+        <T>Back to top ↑</T>
+      </a>
       <footer className="flex justify-between py-8 font-mono text-[10px] uppercase tracking-[0.2em] text-muted">
         <span>
           <T>Portfolio · All rights reserved</T>

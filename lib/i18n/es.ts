@@ -22,14 +22,15 @@ export const es: Record<string, string> = {
     "Me apasiona crear productos web basados en datos que destaquen del resto.",
   "Full-stack · Data · Security":
     "Full-stack · Datos · Seguridad",
-  "I build web apps and data tools for small businesses":
-    "Creo aplicaciones web y herramientas de datos para pequeños negocios",
+  "Web apps and data tools for small businesses":
+    "Aplicaciones web y herramientas de datos para pequeños negocios",
   "Based in Barcelona · Worldwide":
     "Desde Barcelona · Para todo el mundo",
   "Discipline & craft":
     "Disciplina y oficio",
   "Full-stack developer moving into cybersecurity. Studying for CompTIA Security+ and open to junior security roles.":
     "Desarrollador full-stack pasándose a la ciberseguridad. Estudio para CompTIA Security+ y busco puestos junior de seguridad.",
+  "Back to top ↑": "Volver arriba ↑",
   "Get in touch →":
     "Hablemos →",
   "Origin & foundations":
